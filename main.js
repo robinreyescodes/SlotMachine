@@ -2,6 +2,23 @@
 
 const prompt = require("prompt-sync")(); //add () to call it
 
+const ROWS = 3;
+const COLS = 3;
+
+const SYMBOLS_COUNT = {
+  A: 2,
+  B: 4,
+  C: 6,
+  D: 8,
+};
+
+const SYMBOL_VALUES = {
+  A: 5,
+  B: 4,
+  C: 3,
+  D: 2,
+};
+
 //1. Deposit some money
 const deposit = () => {
   while (true) {
@@ -51,8 +68,20 @@ const getBet = (balance, lines) => {
   }
 };
 
-let balance = deposit(); //users starting balance
-const numberOfLines = getNumberOfLines();
-const bet = getBet(balance, numberOfLines);
+//4. Spin the machine
+const spinMachine = () => {
+  const symbols = [];
 
-console.log(bet);
+  for (const [symbol, count] of Object.entries(SYMBOLS_COUNT)) {
+    for (let i = 0; i < count; i++) {
+      symbols.push(symbol); //add however many symbols we have in array
+    }
+  }
+  const reels = [[], [], []];
+};
+
+console.log(spinMachine());
+
+// let balance = deposit(); //users starting balance
+// const numberOfLines = getNumberOfLines();
+// const bet = getBet(balance, numberOfLines);
