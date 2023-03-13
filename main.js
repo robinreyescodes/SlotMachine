@@ -111,12 +111,21 @@ const transposeMatrix = (reels) => {
   return transposed;
 };
 
-/* 
+//6. Print our rows
+const printRows = (rows) => {
+  for (const row of rows) {
+    let rowString = "";
+    for (const [i, symbol] of row.entries()) {
+      rowString += symbol;
+      if (i != rows.length - 1) rowString += " | ";
+    }
+    console.log(rowString);
+  }
+};
+
 let balance = deposit(); //users starting balance
 const numberOfLines = getNumberOfLines();
-const reels = spinMachine(); 
-const bet = getBet(balance, numberOfLines);*/
+const bet = getBet(balance, numberOfLines);
 const reels = spinMachine();
-console.log(reels);
 const transposed = transposeMatrix(reels);
-console.log(transposed);
+printRows(transposed);
