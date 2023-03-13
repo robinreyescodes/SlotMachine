@@ -91,7 +91,32 @@ const spinMachine = () => {
   return reels;
 };
 
+//5. transpose the matrix
+//[[D, C, C], [B, A, C], [C, D, B]]
+//needs to be...
+// D B C
+// C A D
+// C C B
+const transposeMatrix = (reels) => {
+  let transposed = [];
+  let i = 0;
+  while (i < reels.length) {
+    let subArr = [];
+    for (let j = 0; j < reels.length; j++) {
+      subArr.push(reels[j][i]);
+    }
+    i++;
+    transposed.push(subArr);
+  }
+  return transposed;
+};
+
+/* 
 let balance = deposit(); //users starting balance
 const numberOfLines = getNumberOfLines();
-const bet = getBet(balance, numberOfLines);
+const reels = spinMachine(); 
+const bet = getBet(balance, numberOfLines);*/
 const reels = spinMachine();
+console.log(reels);
+const transposed = transposeMatrix(reels);
+console.log(transposed);
